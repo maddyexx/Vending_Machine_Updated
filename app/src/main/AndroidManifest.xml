@@ -12,10 +12,10 @@
         android:theme="@style/Theme.Vending_machine"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".Fragment"
             android:exported="false" />
         <activity
-            android:name=".balance_activity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"

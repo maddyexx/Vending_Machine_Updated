@@ -20,7 +20,7 @@ import java.util.Locale;
 
 public class HomeActivity extends AppCompatActivity {
     int balance_value;
-    TextView balance_amount;
+    TextView balance_amount, username;
     EditText amount;
     Button confirm, lgout, entercash;
     private double currentTotal = 0.0;
@@ -35,15 +35,17 @@ public class HomeActivity extends AppCompatActivity {
         listview = findViewById(R.id.custom_list_view);
         entercash = findViewById(R.id.amount_enter);
         amount = findViewById(R.id.balance_amount_input);
+        username = findViewById(R.id.user_name);
         initComponents();
         settingUpListeners();
         initItems();
-
         customBaseAdaptor = new CustomBaseAdaptor(this, productList);
         listview.setAdapter(customBaseAdaptor);
 
     }
     private void initItems() {
+        String usernames = pref.getString("username", "");
+        username.setText("Welcome "+usernames+"! Enter cash and select item to take out");
         productList.add(new Product("Lays",30, R.drawable.lays, 5));
         productList.add(new Product("Cheetos",50, R.drawable.cheetos, 4));
         productList.add(new Product("Kurkure",30, R.drawable.kurkure, 5));
@@ -76,7 +78,7 @@ public class HomeActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = pref.edit();
                 editor.putBoolean("flag", false);
                 editor.apply();
-                Intent Ilogout = new Intent(HomeActivity.this, MainActivity.class);
+                Intent Ilogout = new Intent(HomeActivity.this, Fragment.class);
                 startActivity(Ilogout);
             }
         });

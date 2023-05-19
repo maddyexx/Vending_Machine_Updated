@@ -2,6 +2,7 @@ package com.example.vending_machine;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -14,7 +15,6 @@ public class signupActivity extends AppCompatActivity {
     EditText name, email, pass, re_pass;
     Button register, cancel, login;
     SharedPreferences pref;
-/*    SharedPreferences pref = getSharedPreferences("user_info", MODE_PRIVATE);*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
